@@ -348,16 +348,14 @@ section.trees::after, .project::after {
         width: 100%;
     }
     .nav-background {
-        background-image: url("../images/header.png");
-        background-size: cover;
+        background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("../images/header.png");
+        height: calc(100vh-115.33px);
         width: 100%;
-    }
-    .nav-background-op {
-        background-color: rgba(255, 255, 255, 0.6);
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
         padding-top: 100px;
         padding-bottom: 40px;
-        margin: 0 auto;
-        height: 100%;
     }
     .social {
         width: 100%;
@@ -367,8 +365,10 @@ section.trees::after, .project::after {
     }
     .social-icon {
         max-width: 1100px;
-        margin: auto;
-        padding: 0 40px;
+        position: relative;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
     }
     .container-project-pics {
         max-width: 1100px;
