@@ -73,7 +73,7 @@ p {
 }
 
 section p {
-    text-align: justify;
+    font-size: 20px;
 }
 
 a {
@@ -155,14 +155,39 @@ footer p {
 /* Header */
 .flex-spb {
     display: flex;
-    justify-content: space-between;
     align-items: center;
 }
 .flex-spb-100 {
     height: 100%;
+    justify-content: space-between;
+}
+.flex-spb-center {
+    justify-content: center;
 }
 .headbar {
     height: 115.33px;
+}
+.head-a {
+    grid-area: header-grid;
+}
+.head-b {
+    grid-area: nav-grid;
+}
+.head-c {
+    grid-area: socialpic-grid;
+}
+.head-d {
+    grid-area: socialicon-grid;
+}
+.container-header {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: auto;
+    grid-template-areas: 
+      "header-grid header-grid"
+      "nav-grid nav-grid"
+      "socialpic-grid socialpic-grid"
+      "socialicon-grid socialicon-grid";
 }
 
 /* Projects */
@@ -226,14 +251,13 @@ nav a {
 
 /* Social */
 .social {
-    background-color: var(--primary-color);
-    color: #fff;
-    padding: 31px;
+    color: var(--primary-color);
+    padding: 31px 40px;
     font-size: 17px;
     line-height: normal;
 }
 .social div:nth-child(2) {
-    padding: 0px 30px;
+    padding: 0px 0px 0px 15px;
 }
 
 /* Projects */
@@ -273,8 +297,8 @@ nav a {
     background-color: var(--secondary-color);
     color: white;
     cursor: pointer;
-    height: 40px;
-    width: 40px;
+    height: 50px;
+    width: 50px;
     border-radius: 50%;
 }
   #topBtn:hover {
@@ -327,7 +351,7 @@ nav a {
     font-size: 28px;
   }
 
-section.trees::after, .project::after {
+section.trees::after, .project::after, .social::after {
     content: "";
     display: block;
     height: 3px;
@@ -335,40 +359,64 @@ section.trees::after, .project::after {
     margin: 1.5rem auto;
     background-color: var(--secondary-color);
 }
+.social::after {
+    margin: 1.5rem auto -30px auto;
+}
 
 @media screen and (min-width: 1024px) {
+    .head-b {
+        align-self: center;
+    }
+    .head-c {
+        padding-right: 60px;
+    }
+    .head-d {
+        align-self: start;
+    }
+    .container-header {
+        grid-template-columns: 40% 60%;
+        grid-template-areas: 
+          "header-grid header-grid"
+          "nav-grid socialpic-grid"
+          "socialicon-grid socialpic-grid";
+    }
+    .container-head {
+        padding: 0 60px;
+    }
     header {
         height: 100vh;
+        max-width: 1100px;
         width: 100%;
-        display: flex;
-        flex-wrap: wrap;
-        margin-bottom: auto;
+        margin: auto;
     }
     .headbar {
         width: 100%;
     }
     .nav-background {
-        background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("../images/header.png");
-        height: calc(100vh-115.33px);
-        width: 100%;
-        background-repeat: no-repeat;
-        background-size: cover;
-        position: relative;
-        padding-top: 100px;
-        padding-bottom: 40px;
+        padding-top: 17px;
+        width: 40%;
+    }
+    nav {
+       margin-bottom: 0; 
+    }
+    nav a {
+        font-size: 51px;
+        line-height: normal;
+        padding-left: 60px;
     }
     .social {
-        width: 100%;
-    }
-    .social-pic {
+        padding: 31px 60px;
+    } 
+    .social::after {
         display: none;
     }
-    .social-icon {
-        max-width: 1100px;
-        position: relative;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
+    .head-b::after {
+        content: "";
+        display: block;
+        height: 3px;
+        width: 130px;
+        margin: 40px 0 -20px 60px;
+        background-color: var(--secondary-color);
     }
     .container-project-pics {
         max-width: 1100px;
@@ -383,5 +431,14 @@ section.trees::after, .project::after {
         grid-template-rows: auto;
         grid-template-areas: 
           "first second third fourth";
+    }
+}
+
+@media screen and (min-width: 1920px) {
+    header, .container, .container-project-pics {
+        max-width: 1400px;
+    }
+    nav a {
+        font-size: 71px;
     }
 }
