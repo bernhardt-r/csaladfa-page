@@ -541,11 +541,18 @@ section.trees::after, .project::after, .social::after {
         width: 50%;
         padding: 60px;
     }
+    .logo-img-header {
+        width: 79px;
+        height: 46px;
+    }
 }
 
 @media screen and (min-width: 1920px) {
     header, .container, .container-project-pics {
-        max-width: 1400px;
+        max-width: 1500px;
+    }
+    .headbar {
+        margin-bottom: -40px;
     }
     nav a {
         font-size: 71px;
