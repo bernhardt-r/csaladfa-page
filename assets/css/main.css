@@ -85,6 +85,10 @@ a:hover {
     color: var(--secondary-color);
 }
 
+.text-a {
+    color: var(--secondary-color);
+}
+
 footer a {
     color:#fff;
 }
